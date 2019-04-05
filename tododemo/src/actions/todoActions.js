@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO } from './actionTypes';
+import { ADD_TODO, REMOVE_TODO, UNDO } from './actionTypes';
 
 export const addTodo = (todo) => {
   return {
@@ -11,5 +11,11 @@ export const removeTodo = (index) => {
   return {
     type: REMOVE_TODO,
     index
+  };
+}
+
+export const undo = () => {
+  return {
+    type: UNDO
   };
 }

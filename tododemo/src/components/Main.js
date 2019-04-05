@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import store from "../store";
-import { addTodo, removeTodo } from "../actions/todoActions";
+import { addTodo, removeTodo, undo } from "../actions/todoActions";
 
 class Main extends Component {
   constructor() {
@@ -14,13 +14,13 @@ class Main extends Component {
   }
 
   render() {
-    const todos = [];
     return (
       <div>
         <p>Todo List [{this.props.numTodos}]</p>
+        <button onClick={this.undo}>undo</button>
         { this.props.todos.map((todo, index) =>
-            <div>
-              <p key={ index } style={{ display: "inline-block" }}>{ todo }</p>
+            <div key={ index }>
+              <p style={{ display: "inline-block" }}>{ todo }</p>
               <button onClick={this.removeTodo.bind(null, index)}>X</button>
             </div>
           )
@@ -55,6 +55,12 @@ class Main extends Component {
     store.dispatch(
       removeTodo(index)
     )
+  }
+
+  undo = () => {
+    store.dispatch(
+      undo()
+    );
   }
 }
 
