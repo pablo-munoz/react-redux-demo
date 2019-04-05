@@ -40,9 +40,15 @@ class Main extends Component {
   }
 
   addTodo = () => {
-    store.dispatch(
-      addTodo(this.state.todo)
-    );
+    const todoContent = this.state.todo;
+
+    this.setState({
+      todo: ""
+    }, () => {
+      store.dispatch(
+        addTodo(todoContent)
+      );
+    })
   }
 
   removeTodo = (index) => {
