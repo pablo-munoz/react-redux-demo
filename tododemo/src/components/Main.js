@@ -17,7 +17,7 @@ class Main extends Component {
     const todos = [];
     return (
       <div>
-        <p>Todo List</p>
+        <p>Todo List [{this.props.numTodos}]</p>
         { this.props.todos.map((todo, index) =>
             <div>
               <p key={ index } style={{ display: "inline-block" }}>{ todo }</p>
@@ -60,7 +60,8 @@ class Main extends Component {
 
 const mapStateToProps = (store) => {
   return {
-    todos: store.todos
+    todos: store.todos,
+    numTodos: store.todos.length
   }
 }
 
