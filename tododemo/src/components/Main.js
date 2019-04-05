@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import store from "../store";
-import { addTodo } from "../actions/todoActions";
+import { addTodo, removeTodo } from "../actions/todoActions";
 
 class Main extends Component {
   constructor() {
@@ -19,7 +19,10 @@ class Main extends Component {
       <div>
         <p>Todo List</p>
         { this.props.todos.map((todo, index) =>
-            <p key={ index }>{ todo }</p>
+            <div>
+              <p key={ index } style={{ display: "inline-block" }}>{ todo }</p>
+              <button>X</button>
+            </div>
           )
         }
 
@@ -40,6 +43,12 @@ class Main extends Component {
     store.dispatch(
       addTodo(this.state.todo)
     );
+  }
+
+  removeTodo = (index) => {
+    store.dispatch(
+      removeTodo(index)
+    )
   }
 }
 

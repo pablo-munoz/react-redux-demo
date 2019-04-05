@@ -1,4 +1,4 @@
-import { ADD_TODO } from './actionTypes';
+import { ADD_TODO, REMOVE_TODO } from './actionTypes';
 
 export const addTodo = (todo) => {
   return {
@@ -6,3 +6,10 @@ export const addTodo = (todo) => {
     todo: todo
   };
 };
+
+export const removeTodo = (index) => {
+  return {
+    type: REMOVE_TODO,
+    index
+  };
+}
