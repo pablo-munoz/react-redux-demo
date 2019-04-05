@@ -1,7 +1,10 @@
 import { ADD_TODO } from '../actions/actionTypes';
 
 const initialState = {
-  todos: []
+  todos: [
+    "An already created todo",
+    "Another todo"
+  ]
 };
 
 const addTodo = (state, action) => {
