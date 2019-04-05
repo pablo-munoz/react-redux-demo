@@ -12,9 +12,8 @@ const addTodo = (state, action) => {
 }
 
 const removeTodo = (state, action) => {
-  // To create a new array with all elements of an old one except one we can use array destructuring
-  // [...arr.slice(0, indexToRemove), ...arr.slice(indexToRemove+1)]
-  return { ...state };
+  const index = action.index;
+  return { ...state, todos: [...state.todos.slice(0, index), ...state.todos.slice(index+1)]}
 }
 
 const todoReducer = (state = initialState, action) => {

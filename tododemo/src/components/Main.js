@@ -21,7 +21,7 @@ class Main extends Component {
         { this.props.todos.map((todo, index) =>
             <div>
               <p key={ index } style={{ display: "inline-block" }}>{ todo }</p>
-              <button>X</button>
+              <button onClick={this.removeTodo.bind(null, index)}>X</button>
             </div>
           )
         }
